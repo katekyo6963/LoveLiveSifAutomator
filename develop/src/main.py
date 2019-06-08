@@ -12,7 +12,14 @@
 =========================================
 """
 
+
 import time
+import sys
+from sif_common.sif_file import file_operator
+
+args = sys.argv
+# 譜面データから譜面とBPMを取得
+fumen, bpm = file_operator.fumen_reader(args[1])
 
 def live_operator(fumen, slp):
     for i in range(len(fumen)):
