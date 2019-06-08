@@ -12,18 +12,19 @@
 =========================================
 """
 
-
-import time
 import sys
+import sif_common.messages
 from sif_common.sif_file import file_operator
+from sif_model import live_operator
 
-args = sys.argv
-# 譜面データから譜面とBPMを取得
-fumen, bpm = file_operator.fumen_reader(args[1])
+def main():
+    args = sys.argv
 
-def live_operator(fumen, slp):
-    for i in range(len(fumen)):
-        if fumen[i] != "-":
-            pass
-        else:
-            time.sleep(slp)
+    # 譜面データから譜面とBPMを取得
+    f_op = file_operator.FileOperator()
+    fumen, bpm = f_op.fumen_reader(args[1])
+
+    print(fumen)
+    print(bpm)
+
+main()
