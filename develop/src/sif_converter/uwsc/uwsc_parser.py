@@ -16,7 +16,7 @@ import win32gui
 import pyperclip
 import math
 from datetime import datetime
-import uwsc_grobal as ug
+import sif_converter.uwsc.uwsc_global as ug
 import subprocess
 
 
@@ -31,7 +31,7 @@ class UWSCparser:
     Return  : None
     備考    :
     """
-    def KBD(self, key, type, ms):
+    def kdb(self, key, type, ms):
         sec = ms / 1000 # ミリ秒から秒へ変換
         if type == 0:
             pyautogui.press(  key, interval = sec)
@@ -55,7 +55,7 @@ class UWSCparser:
     Return  : None
     備考    :
     """
-    def BTN(self, key, type, xs, ys, ms):
+    def btn(self, key, type, xs, ys, ms):
         sec = ms / 1000 # ミリ秒から秒へ変換
         pyautogui.click(x=xs, y=ys, button=key, interval=sec)
 
@@ -74,7 +74,7 @@ class UWSCparser:
     Return  : None
     備考    :
     """
-    def BTN_CLICK(self, key, xs, ys, ms):
+    def btn_click(self, key, xs, ys, ms):
         sec = ms / 1000 # ミリ秒から秒へ変換
         pyautogui.click(x=xs, y=ys, button=key, interval=sec)
 
@@ -96,8 +96,8 @@ class UWSCparser:
               完全一致する画像がなかった : False
     備考    :
     """
-    def chkimg(self, picPath, transFlag, x1, y1, x2, y2):
-        im = pyautogui.locateOnScreen(picPath, region=(x1 , y1, x2, y2))
+    def chkimg(self, pic_path, trans_flag, x1, y1, x2, y2):
+        im = pyautogui.locateOnScreen(pic_path, region=(x1 , y1, x2, y2))
         if im is None:
             return False
         else:
@@ -143,7 +143,7 @@ class UWSCparser:
     Return  : None
     備考    :
     """
-    def SENDSTR(self, copyStr):
+    def sendstr(self, copyStr):
         pyperclip.copy(copyStr)
 
 
@@ -155,7 +155,7 @@ class UWSCparser:
     Return  : None
     備考    : コマンドの終了は待たない
     """   
-    def DOSCMD(self, cmd):
+    def doscmd(self, cmd):
         ret = subprocess.Popen(cmd, shell=True)
 
 
@@ -168,7 +168,7 @@ class UWSCparser:
     Return  : 現在時刻
     備考    : format : 1970-01-01 00:00:00
     """
-    def GETTIME(self):
+    def gettime(self):
         now = datetime.now()
         ug.G_TIME_YY = now.year
         ug.G_TIME_MM = now.month
@@ -188,7 +188,7 @@ class UWSCparser:
     Return  : 現在時刻 + $2 の時間
     備考    : format : 1970-01-01 00:00:00
     """
-    def GETTIME_AFTER(self, afterSecondTime):
+    def gettime_after(self, afterSecondTime):
         now = datetime.now()
         afterTime = now + datetime.timedelta(seconds=afterSecondTime)
         ug.G_TIME_YY = now.year

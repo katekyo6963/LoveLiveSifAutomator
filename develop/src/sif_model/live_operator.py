@@ -6,10 +6,11 @@ param   : $1: 譜面データ
 """
 
 import time
+import sif_converter.uwsc.uwsc_parser
+import sif_converter.uwsc.uwsc_global
 
 class LiveOperator():
-
-    def live_operator(self, fumen, slp):
+    def live_automator(self, fumen, slp):
         for i in range(len(fumen)):
             if fumen[i] != "-":
                 pass
