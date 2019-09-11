@@ -34,8 +34,11 @@ def main():
     print(bpm)
     print("slp="+ str(sleep_time))
 
+
+
     # ライブ自動処理
-    # lo = live_operator.LiveOperator()
+    lo = live_operator.LiveOperator()
+    print(lo.tap1x)
     # lo.live_automator(fumen, sleep_time) 
     
 
